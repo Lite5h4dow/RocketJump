@@ -26,6 +26,7 @@ namespace RocketJump {
       var p_entity = player.GetEntityArray();
 
       for (int i = 0; i < player.CalculateLength(); i++) {
+        PostUpdateCommands.RemoveComponent<ReadyToJump>(p_entity[i]);
         PostUpdateCommands.AddComponent<DoJump>(p_entity[i], new DoJump { });
       }
     }
