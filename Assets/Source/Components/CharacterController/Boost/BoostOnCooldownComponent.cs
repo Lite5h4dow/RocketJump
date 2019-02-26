@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace RocketJump {
   [Serializable]
-  public struct BoostReady : IComponentData { 
+  public struct BoostCooldown : IComponentData {
     public float Value;
   }
-  public class BoostReadyComponent : ComponentDataProxy<BoostReady> { }
+  public class BoostOnCooldownComponent : ComponentDataProxy<BoostReady> { }
 }

@@ -642,10 +642,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: bfa0fb23-e846-4d7d-a68f-87451ff8dc36
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: ecs_boilerplate
+  organizationId: lite5h4dow
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

@@ -15,24 +15,22 @@ namespace RocketJump {
         typeof (ReadyToBoost),
         typeof (WalkSpeed)
       );
-      input = GetComponentGroup(
-        typeof(BoostKeyDown)
+      input = GetComponentGroup (
+        typeof (BoostKeyDown)
       );
 
-      RequireForUpdate(player);
-      RequireForUpdate(input);
+      RequireForUpdate (player);
+      RequireForUpdate (input);
     }
 
     protected override void OnUpdate () {
       var p_entity = player.GetEntityArray ();
-      var p_walkSpeed = player.GetComponentDataArray<WalkSpeed> ();
 
       for (int i = 0; i < player.CalculateLength (); i++) {
         PostUpdateCommands.RemoveComponent<ReadyToBoost> (p_entity[i]);
         PostUpdateCommands.AddComponent<BoostReady> (p_entity[i], new BoostReady { });
-
+        PostUpdateCommands.AddComponent<BoostStart> (p_entity[i], new BoostStart { });  
       }
-
     }
   }
 }

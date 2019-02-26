@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace RocketJump {
   public class DeveloperSettings : MonoBehaviour {
-    [Header("Character Controlelrs")]
+    [Header("Character Controllers")]
     public bool DebugMovementInput = false;
     public bool DebugJumpState = false;
+    public bool DebugBoostState = true;
   }
 }
