@@ -14,15 +14,17 @@ namespace RocketJump {
         typeof(BoostReady)
       );
 
+      // NOTE: not needed for single component group
       RequireForUpdate(boost);
     }
 
     protected override void OnUpdate () {
       var b_entity = boost.GetEntityArray();
       var b_timer = boost.GetComponentDataArray<BoostReady>();
-      for(int i = 0; i < boost.CalculateLength(); i++){
+
+      for (int i = 0; i < boost.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<BoostStart>(b_entity[i]);
-        EntityManager.SetComponentData(b_entity[i], new BoostReady{ Value = timerLength});
+        EntityManager.SetComponentData(b_entity[i], new BoostReady { Value = timerLength });
       }
     }
   }
