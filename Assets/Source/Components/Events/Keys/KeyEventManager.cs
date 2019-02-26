@@ -30,7 +30,6 @@ namespace RocketJump {
 
     void GetBoostKey () {
       if (Input.GetButtonDown("Boost")) {
-        Debug.Log("test");
         em.AddComponent(entity, typeof(BoostKeyDown));
       } else if (Input.GetButton("Boost")) {
         em.AddComponent(entity, typeof(BoostKeyHeld));

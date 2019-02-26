@@ -12,7 +12,7 @@ namespace RocketJump {
     protected override void OnCreateManager () {
       player = GetComponentGroup(
         typeof(Player),
-        typeof(ReadyToJump)
+        typeof(JumpReady)
       );
       jumpKey = GetComponentGroup(
         typeof(JumpKeyDown)
@@ -26,7 +26,7 @@ namespace RocketJump {
       var p_entity = player.GetEntityArray();
 
       for (int i = 0; i < player.CalculateLength(); i++) {
-        PostUpdateCommands.RemoveComponent<ReadyToJump>(p_entity[i]);
+        PostUpdateCommands.RemoveComponent<JumpReady>(p_entity[i]);
         PostUpdateCommands.AddComponent<DoJump>(p_entity[i], new DoJump { });
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */

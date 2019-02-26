@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 0
+    Value: 5
 --- !u!114 &1053371678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 0
+    Value: 5
 --- !u!1001 &2047570463629682546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -778,6 +778,11 @@ PrefabInstance:
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugJumpState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
+        type: 3}
+      propertyPath: DebugBoostState
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
