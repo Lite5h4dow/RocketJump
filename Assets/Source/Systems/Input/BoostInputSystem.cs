@@ -13,7 +13,10 @@ namespace RocketJump {
       player = GetComponentGroup(
         typeof(Player),
         typeof(ReadyToBoost),
-        typeof(WalkSpeed)
+        typeof(WalkSpeed),
+        typeof(BaseWalkSpeed),
+        typeof(WalkSpeed),
+        typeof(MaxBoost)
       );
       input = GetComponentGroup(
         typeof(BoostKeyDown)
@@ -28,11 +31,7 @@ namespace RocketJump {
 
       for (int i = 0; i < player.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<ReadyToBoost>(p_entity[i]);
-
         Debug.Log("input recieved");
-
-        // NOTE: pick one, don't transition from ReadyToBoost to 2 new states
-        PostUpdateCommands.AddComponent<BoostReady>(p_entity[i], new BoostReady { });
         PostUpdateCommands.AddComponent<BoostStart>(p_entity[i], new BoostStart { });
       }
     }
