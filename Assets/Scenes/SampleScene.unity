@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 1053371677}
   - component: {fileID: 1053371683}
   - component: {fileID: 1053371686}
+  - component: {fileID: 1053371690}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -596,7 +597,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053371676}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -635,6 +636,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8133af023214ae993fc28d2fd97a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1053371690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053371676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdca49bb9fa51412ebcffb12d7f2a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2047570463629682546
@@ -703,6 +716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
+        type: 3}
+      propertyPath: DebugJumpState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc526e24d022457cb8caaf27ee10594, type: 3}

@@ -23,7 +23,13 @@ namespace RocketJump {
           continue;
 
         PostUpdateCommands.RemoveComponent<Jumping>(p_entity[i]);
-        PostUpdateCommands.AddComponent<ReadyToJump>(p_entity[i], new ReadyToJump { });
+        PostUpdateCommands.AddComponent<DoneJump>(p_entity[i], new DoneJump { });
+
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+        if (Bootstrap.DeveloperSettings.DebugJumpState) {
+          Debug.Log($"<color=green>{this.GetType()}</color> DoneJump");
+        }
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
       }
     }
   }
