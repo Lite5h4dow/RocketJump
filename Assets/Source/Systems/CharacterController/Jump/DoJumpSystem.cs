@@ -1,38 +1,35 @@
-using UnityEngine;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
-namespace RocketJump {
-  public class DoJumpSystem : ComponentSystem {
-    ComponentGroup player;
+namespace RocketJump{
+  public class DoJumpSystem:ComponentSystem{
+    ComponentGroup jump;
 
-    protected override void OnCreateManager () {
-      player = GetComponentGroup(
-        typeof(DoJump),
-        typeof(MaxJumpHangtime)
+    protected override void OnCreateManager(){
+      jump = GetComponentGroup(
+        ComponentType.Subtractive(typeof(JumpTimer)),
+        typeof(Player),
+        typeof(JumpVelocity),
+        typeof(JumpCooldown),
+        typeof(JumpStart),
+        typeof(Rigidbody2D)
       );
     }
 
-    protected override void OnUpdate () {
-      var p_entity = player.GetEntityArray();
-      var p_maxJumpHangtime = player.GetComponentDataArray<MaxJumpHangtime>();
+    protected override void OnUpdate(){
+      var j_entities = jump.GetEntityArray();
+      var j_velocity = jump.GetComponentDataArray<JumpVelocity>();
+      var j_cooldown = jump.GetComponentDataArray<JumpCooldown>();
+      var j_rigidbody2D = jump.GetComponentArray<Rigidbody2D>();
 
-      var dt = Time.deltaTime;
-      for (int i = 0; i < player.CalculateLength(); i++) {
-        // TODO: this system should only transition to jumping if all conditions are met such as "if(player is on ground)"
-
-        PostUpdateCommands.RemoveComponent<DoJump>(p_entity[i]);
-        PostUpdateCommands.AddComponent<Jumping>(p_entity[i], new Jumping {
-          Hangtime = p_maxJumpHangtime[i].Value
-        });
-
-        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
-        if (Bootstrap.DeveloperSettings.DebugJumpState) {
-          Debug.Log($"<color=green>{this.GetType()}</color> Jumping");
-        }
-        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+      for(int i = 0; i < jump.CalculateLength(); i++){
+        j_rigidbody2D[i].velocity += new Vector2(0,j_velocity[i].Value);
+        PostUpdateCommands.RemoveComponent<JumpStart>(j_entities[i]);
+        PostUpdateCommands.AddComponent<JumpTimer>(j_entities[i], new JumpTimer{Value = j_cooldown[i].Value});
+        
       }
     }
   }

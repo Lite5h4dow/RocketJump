@@ -12,17 +12,17 @@ namespace RocketJump {
       boost = GetComponentGroup(
         typeof(Player),
         typeof(BoostStart),
-        typeof(MaxBoost)
+        typeof(BoostTimer)
       );
     }
 
     protected override void OnUpdate () {
       var b_entity = boost.GetEntityArray();
-      var b_maxBoost = boost.GetComponentDataArray<MaxBoost>();
+      var b_boostTimer = boost.GetComponentDataArray<BoostTimer>();
 
       for (int i = 0; i < boost.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<BoostStart>(b_entity[i]);
-        PostUpdateCommands.AddComponent<Boosting>(b_entity[i], new Boosting { Value = b_maxBoost[i].Value });
+        PostUpdateCommands.AddComponent<Boosting>(b_entity[i], new Boosting { Value = b_boostTimer[i].Value });
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
         if (Bootstrap.DeveloperSettings.DebugBoostState) {

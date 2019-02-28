@@ -27,11 +27,11 @@ namespace RocketJump {
 
       for (int i = 0; i < player.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<JumpReady>(p_entity[i]);
-        PostUpdateCommands.AddComponent<DoJump>(p_entity[i], new DoJump { });
+        PostUpdateCommands.AddComponent<JumpStart>(p_entity[i], new JumpStart { });
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
         if (Bootstrap.DeveloperSettings.DebugJumpState) {
-          Debug.Log($"<color=green>{this.GetType()}</color> DoJump");
+          Debug.Log($"<color=green>{this.GetType()}</color> JumpStart");
         }
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
       }
