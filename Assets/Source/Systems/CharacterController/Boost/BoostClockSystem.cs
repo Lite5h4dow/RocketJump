@@ -12,26 +12,26 @@ namespace RocketJump {
     protected override void OnCreateManager () {
       boost = GetComponentGroup(
         typeof(Player),
-        typeof(Boosting)
-      // NOTE: remove until boostcooldown impelemented
-      // typeof(BoostCooldown)
+        typeof(Boosting),
+        typeof(BoostCooldown)
       );
     }
 
     protected override void OnUpdate () {
       var b_entity = boost.GetEntityArray();
       var b_timer = boost.GetComponentDataArray<Boosting>();
-      // var b_cooldown = boost.GetComponentDataArray<BoostCooldown>();
+      var b_cooldown = boost.GetComponentDataArray<BoostCooldown>();
 
       for (int i = 0; i < boost.CalculateLength(); i++) {
-        // NOTE: removed secondary logic from system, fails single responsibility test
         if (b_timer[i].Value > 0)
           continue;
 
         PostUpdateCommands.RemoveComponent<Boosting>(b_entity[i]);
-        PostUpdateCommands.AddComponent<BoostEnd>(b_entity[i], new BoostEnd {
-          // Value = b_cooldown[i].Value
-        });
+        PostUpdateCommands.AddComponent<BoostEnd>(
+          b_entity[i], 
+          new BoostEnd{Value = b_cooldown[i].Value}
+        );
+
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
         if (Bootstrap.DeveloperSettings.DebugBoostState) {

@@ -12,10 +12,7 @@ namespace RocketJump {
       boost = GetComponentGroup(
         typeof(Player),
         typeof(BoostStart),
-        typeof(MaxBoost),
-        // NOTE: you don't use these so get rid of them
-        typeof(WalkSpeed),
-        typeof(BaseWalkSpeed)
+        typeof(MaxBoost)
       );
     }
 
