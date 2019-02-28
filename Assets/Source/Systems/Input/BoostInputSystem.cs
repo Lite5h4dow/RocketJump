@@ -12,11 +12,11 @@ namespace RocketJump {
     protected override void OnCreateManager () {
       player = GetComponentGroup(
         typeof(Player),
-        typeof(ReadyToBoost),
-        typeof(WalkSpeed),
-        typeof(BaseWalkSpeed),
-        typeof(WalkSpeed),
-        typeof(MaxBoost)
+        typeof(BoostReady)
+      // NOTE: remove these as they aren't used
+      // typeof(WalkSpeed),
+      // typeof(BaseWalkSpeed),
+      // typeof(MaxBoost)
       );
       input = GetComponentGroup(
         typeof(BoostKeyDown)
@@ -30,9 +30,14 @@ namespace RocketJump {
       var p_entity = player.GetEntityArray();
 
       for (int i = 0; i < player.CalculateLength(); i++) {
-        PostUpdateCommands.RemoveComponent<ReadyToBoost>(p_entity[i]);
-        Debug.Log("input recieved");
+        PostUpdateCommands.RemoveComponent<BoostReady>(p_entity[i]);
         PostUpdateCommands.AddComponent<BoostStart>(p_entity[i], new BoostStart { });
+
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+        if (Bootstrap.DeveloperSettings.DebugBoostState) {
+          Debug.Log($"<color=green>{this.GetType()}</color> BoostStart");
+        }
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
       }
     }
   }

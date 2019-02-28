@@ -21,7 +21,7 @@ namespace RocketJump {
         // TODO: check if grounded
 
         PostUpdateCommands.RemoveComponent<DoneJump>(p_entity[i]);
-        PostUpdateCommands.AddComponent<ReadyToJump>(p_entity[i], new ReadyToJump { });
+        PostUpdateCommands.AddComponent<JumpReady>(p_entity[i], new JumpReady { });
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
         if (Bootstrap.DeveloperSettings.DebugJumpState) {
