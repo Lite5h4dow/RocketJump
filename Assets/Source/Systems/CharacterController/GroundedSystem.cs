@@ -18,13 +18,9 @@ namespace RocketJump {
 
     protected override void OnUpdate () {
       var g_player = grounded.GetEntityArray();
-      var g_collision = grounded.GetComponentDataArray<CollidedWithGround>();
 
       for (int i = 0; i < grounded.CalculateLength(); i++) {
         PostUpdateCommands.AddComponent<Grounded>(g_player[i], new Grounded { });
-
-        // Damage Example:
-        // EntityManager.GetComponentData<Damage>(g_collision[i].Impact.OtherEntity);
       }
     }
   }

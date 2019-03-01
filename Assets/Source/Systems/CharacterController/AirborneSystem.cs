@@ -18,7 +18,6 @@ namespace RocketJump {
 
     protected override void OnUpdate () {
       var a_player = airborne.GetEntityArray();
-      var a_collided = airborne.GetComponentDataArray<CollidedWithGround>();
 
       for (int i = 0; i < airborne.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<Grounded>(a_player[i]);
