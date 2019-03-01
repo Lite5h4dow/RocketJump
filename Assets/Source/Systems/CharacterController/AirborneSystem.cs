@@ -10,7 +10,7 @@ namespace RocketJump {
 
     protected override void OnCreateManager () {
       airborne = GetComponentGroup(
-        typeof(CollidedWithGround),
+        ComponentType.Subtractive(typeof(CollidedWithGround)),
         typeof(Grounded),
         typeof(Player)
       );
@@ -21,9 +21,6 @@ namespace RocketJump {
       var a_collided = airborne.GetComponentDataArray<CollidedWithGround>();
 
       for (int i = 0; i < airborne.CalculateLength(); i++) {
-        if (a_collided[i].Impact.State != State.Overlap.Exit)
-          continue;
-
         PostUpdateCommands.RemoveComponent<Grounded>(a_player[i]);
       }
     }

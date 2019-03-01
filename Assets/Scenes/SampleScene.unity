@@ -464,7 +464,6 @@ GameObject:
   - component: {fileID: 1053371677}
   - component: {fileID: 1053371698}
   - component: {fileID: 1053371695}
-  - component: {fileID: 1053371696}
   - component: {fileID: 1053371690}
   - component: {fileID: 1053371678}
   m_Layer: 0
@@ -651,11 +650,11 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1053371688
 CapsuleCollider2D:
@@ -763,20 +762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2022d33e09cb1d44814ea5a31fad222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1053371696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053371676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895416f0f1be9294f870698458b25df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    Value: 0
 --- !u!114 &1053371697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,12 +858,12 @@ PrefabInstance:
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugJumpState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugBoostState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc526e24d022457cb8caaf27ee10594, type: 3}
