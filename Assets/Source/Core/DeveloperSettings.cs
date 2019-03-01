@@ -8,5 +8,6 @@ namespace RocketJump {
     public bool DebugMovementInput;
     public bool DebugJumpState;
     public bool DebugBoostState;
+    public bool DebugGroundedState;
   }
 }

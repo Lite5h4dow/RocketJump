@@ -21,7 +21,12 @@ namespace RocketJump {
 
       for (int i = 0; i < airborne.CalculateLength(); i++) {
         PostUpdateCommands.RemoveComponent<Grounded>(a_player[i]);
-        Debug.Log("airborne");
+
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+        if (Bootstrap.DeveloperSettings.DebugGroundedState) {
+          Debug.Log($"<color=green>{this.GetType()}</color> Airborne");
+        }
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
       }
     }
   }

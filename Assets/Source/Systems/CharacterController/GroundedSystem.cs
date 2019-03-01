@@ -21,7 +21,12 @@ namespace RocketJump {
 
       for (int i = 0; i < grounded.CalculateLength(); i++) {
         PostUpdateCommands.AddComponent<Grounded>(g_player[i], new Grounded { });
-        Debug.Log("grounded");
+
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+        if (Bootstrap.DeveloperSettings.DebugGroundedState) {
+          Debug.Log($"<color=green>{this.GetType()}</color> Grounded");
+        }
+        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
       }
     }
   }
