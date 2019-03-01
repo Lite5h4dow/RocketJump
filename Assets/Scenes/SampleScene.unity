@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,6 +132,9 @@ GameObject:
   - component: {fileID: 527484051}
   - component: {fileID: 527484052}
   - component: {fileID: 527484053}
+  - component: {fileID: 527484055}
+  - component: {fileID: 527484056}
+  - component: {fileID: 527484054}
   m_Layer: 0
   m_Name: BasePlatform
   m_TagString: Untagged
@@ -224,6 +227,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &527484054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527484049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ca14adc925c974ab27b19becaf8c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &527484055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527484049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &527484056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527484049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02116471404b0f46a4e4d62c2723fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,15 +454,18 @@ GameObject:
   - component: {fileID: 1053371679}
   - component: {fileID: 1053371689}
   - component: {fileID: 1053371680}
-  - component: {fileID: 1053371678}
   - component: {fileID: 1053371694}
-  - component: {fileID: 1053371677}
+  - component: {fileID: 1053371697}
+  - component: {fileID: 1053371692}
+  - component: {fileID: 1053371691}
   - component: {fileID: 1053371683}
   - component: {fileID: 1053371693}
   - component: {fileID: 1053371686}
-  - component: {fileID: 1053371692}
+  - component: {fileID: 1053371677}
+  - component: {fileID: 1053371698}
+  - component: {fileID: 1053371695}
   - component: {fileID: 1053371690}
-  - component: {fileID: 1053371691}
+  - component: {fileID: 1053371678}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -440,11 +482,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084588b564d0c45c9861115de84bb6e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 249cb09395152c54aa02237955fef7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 5
+    Value: 10
 --- !u!114 &1053371678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,11 +496,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76225d4fbf8714725b8dfa4c6f2f41b9, type: 3}
+  m_Script: {fileID: 11500000, guid: fdab1e89f8c0c4fe7abb0276ab5b2298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 5
+    Value: 0.3
 --- !u!114 &1053371679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,11 +650,11 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1053371688
 CapsuleCollider2D:
@@ -651,7 +693,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdca49bb9fa51412ebcffb12d7f2a7a5, type: 3}
+  m_Script: {fileID: 11500000, guid: eef877297bbaf45fe8fdd8afb0bbcb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1053371691
@@ -679,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 10
+    Value: 5
 --- !u!114 &1053371693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +749,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 15
+    Value: 5
+--- !u!114 &1053371695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053371676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2022d33e09cb1d44814ea5a31fad222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1053371697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053371676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5804c9dfe2471cf4daba1919ff72e1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value: 20
+--- !u!114 &1053371698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053371676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02937f281fc291409c8e5bb35a53575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2047570463629682546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -778,12 +858,12 @@ PrefabInstance:
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugJumpState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugBoostState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc526e24d022457cb8caaf27ee10594, type: 3}

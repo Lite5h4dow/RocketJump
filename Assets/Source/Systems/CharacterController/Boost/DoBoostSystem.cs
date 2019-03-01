@@ -13,18 +13,18 @@ namespace RocketJump {
         typeof (Player),
         typeof (Boosting),
         typeof (WalkSpeed),
-        typeof (MaxBoost)
+        typeof (BoostSpeed)
       );
     }
 
     protected override void OnUpdate () {
       var b_entities = boost.GetEntityArray ();
       var b_walkSpeed = boost.GetComponentDataArray<WalkSpeed> ();
-      var b_boostMax = boost.GetComponentDataArray<MaxBoost> ();
+      var b_boostSpeed = boost.GetComponentDataArray<BoostSpeed> ();
 
       for (int i = 0; i < boost.CalculateLength (); i++) {
         EntityManager.SetComponentData (b_entities[i], new WalkSpeed {
-          Value = b_boostMax[i].Value
+          Value = b_boostSpeed[i].Value
           
         });
       }

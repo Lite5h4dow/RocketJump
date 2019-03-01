@@ -5,25 +5,25 @@ using Unity.Transforms;
 using UnityEngine;
 
 namespace RocketJump {
-  public class DecrementJumpHangtimeSystem : ComponentSystem {
+  public class AddJumpVelocitySystem : ComponentSystem {
     ComponentGroup jump;
 
     protected override void OnCreateManager () {
       jump = GetComponentGroup(
         typeof(Player),
-        typeof(Jumping)
+        typeof(JumpVelocity),
+        typeof(Jumping),
+        typeof(Rigidbody2D)
       );
     }
 
     protected override void OnUpdate () {
       var j_entities = jump.GetEntityArray();
-      var j_jumping = jump.GetComponentDataArray<Jumping>();
+      var j_jumpVelocity = jump.GetComponentDataArray<JumpVelocity>();
+      var j_rigidbody = jump.GetComponentArray<Rigidbody2D>();
 
-      var dt = Time.deltaTime;
       for (int i = 0; i < jump.CalculateLength(); i++) {
-        EntityManager.SetComponentData<Jumping>(j_entities[i], new Jumping {
-          Hangtime = j_jumping[i].Hangtime - dt
-        });
+        j_rigidbody[i].velocity = new Vector2(j_rigidbody[i].velocity.x, j_jumpVelocity[i].Value);
       }
     }
   }

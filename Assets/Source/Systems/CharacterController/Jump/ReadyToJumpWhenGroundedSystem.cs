@@ -1,27 +1,27 @@
-using UnityEngine;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace RocketJump {
-  public class ReadyToJumpSystem : ComponentSystem {
-    ComponentGroup player;
+  public class ReadyToJumpWhenGroundedSystem : ComponentSystem {
+    ComponentGroup jump;
 
     protected override void OnCreateManager () {
-      player = GetComponentGroup(
-        typeof(DoneJump)
+      jump = GetComponentGroup(
+        typeof(Player),
+        typeof(Grounded),
+        typeof(EndJump)
       );
     }
 
     protected override void OnUpdate () {
-      var p_entity = player.GetEntityArray();
+      var j_entities = jump.GetEntityArray();
 
-      for (int i = 0; i < player.CalculateLength(); i++) {
-        // TODO: check if grounded
-
-        PostUpdateCommands.RemoveComponent<DoneJump>(p_entity[i]);
-        PostUpdateCommands.AddComponent<JumpReady>(p_entity[i], new JumpReady { });
+      for (int i = 0; i < jump.CalculateLength(); i++) {
+        PostUpdateCommands.RemoveComponent<EndJump>(j_entities[i]);
+        PostUpdateCommands.AddComponent<ReadyToJump>(j_entities[i], new ReadyToJump { });
 
         /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
         if (Bootstrap.DeveloperSettings.DebugJumpState) {

@@ -5,7 +5,9 @@ using UnityEngine;
 
 namespace RocketJump {
   [Serializable]
-  public struct Jumping : IComponentData {
-    public float Hangtime;
+  public struct ReadyToJump : IComponentData {
+  }
+
+  public class ReadyToJumpComponent : ComponentDataProxy<ReadyToJump> {
   }
 }
