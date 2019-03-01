@@ -4,11 +4,11 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace RocketJump{
-  public class AirboreneSystem:ComponentSystem{
+namespace RocketJump {
+  public class AirborneSystem : ComponentSystem {
     ComponentGroup airborne;
 
-    protected override void OnCreateManager(){
+    protected override void OnCreateManager () {
       airborne = GetComponentGroup(
         typeof(CollidedWithGround),
         typeof(Grounded),
@@ -16,12 +16,12 @@ namespace RocketJump{
       );
     }
 
-    protected override void OnUpdate(){
+    protected override void OnUpdate () {
       var a_player = airborne.GetEntityArray();
       var a_collided = airborne.GetComponentDataArray<CollidedWithGround>();
 
-      for(int i = 0; i < airborne.CalculateLength(); i++){
-        if(a_collided[i].Impact.State != State.Overlap.Exit)
+      for (int i = 0; i < airborne.CalculateLength(); i++) {
+        if (a_collided[i].Impact.State != State.Overlap.Exit)
           continue;
 
         PostUpdateCommands.RemoveComponent<Grounded>(a_player[i]);

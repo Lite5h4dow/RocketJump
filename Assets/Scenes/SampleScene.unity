@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,12 +461,12 @@ GameObject:
   - component: {fileID: 1053371683}
   - component: {fileID: 1053371693}
   - component: {fileID: 1053371686}
-  - component: {fileID: 1053371678}
   - component: {fileID: 1053371677}
-  - component: {fileID: 1053371690}
   - component: {fileID: 1053371698}
   - component: {fileID: 1053371695}
   - component: {fileID: 1053371696}
+  - component: {fileID: 1053371690}
+  - component: {fileID: 1053371678}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 10
+    Value: 5
 --- !u!114 &1053371678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,11 +497,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71358f4ed275df4db634b762481e3bf, type: 3}
+  m_Script: {fileID: 11500000, guid: fdab1e89f8c0c4fe7abb0276ab5b2298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 5
+    Value: 0.3
 --- !u!114 &1053371679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdca49bb9fa51412ebcffb12d7f2a7a5, type: 3}
+  m_Script: {fileID: 11500000, guid: eef877297bbaf45fe8fdd8afb0bbcb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1053371691
