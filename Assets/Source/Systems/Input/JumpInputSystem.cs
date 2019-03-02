@@ -1,44 +1,39 @@
-using UnityEngine;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace RocketJump {
   public class JumpInputSystem : ComponentSystem {
-    ComponentGroup player;
-    ComponentGroup jumpKey;
+    ComponentGroup jump;
+    ComponentGroup key;
 
     protected override void OnCreateManager () {
-      player = GetComponentGroup(
-        typeof(Grounded),
-        typeof(Player),
-        typeof(JumpHangtime),
-        typeof(ReadyToJump)
-      );
-      jumpKey = GetComponentGroup(
-        typeof(JumpKeyDown)
+      jump = GetComponentGroup (
+        typeof (Player),
+        typeof (JumpReady),
+        typeof (JumpTimer)
       );
 
-      RequireForUpdate(player);
-      RequireForUpdate(jumpKey);
+      key = GetComponentGroup (
+        typeof (JumpKeyDown)
+      );
+
+      RequireForUpdate (jump);
+      RequireForUpdate (key);
     }
 
     protected override void OnUpdate () {
-      var p_entity = player.GetEntityArray();
-      var p_jumpHangtime = player.GetComponentDataArray<JumpHangtime>();
+      var j_entities = jump.GetEntityArray ();
+      var j_timer = jump.GetComponentDataArray<JumpTimer> ();
 
-      for (int i = 0; i < player.CalculateLength(); i++) {
-        PostUpdateCommands.RemoveComponent<ReadyToJump>(p_entity[i]);
-        PostUpdateCommands.AddComponent<Jumping>(p_entity[i], new Jumping {
-          Hangtime = p_jumpHangtime[i].Value
+      for (int i = 0; i < jump.CalculateLength (); i++) {
+        Debug.Log("test");
+        PostUpdateCommands.AddComponent<Jumping> (j_entities[i], new Jumping {
+          JumpTime = j_timer[i].Value
         });
-
-        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
-        if (Bootstrap.DeveloperSettings.DebugJumpState) {
-          Debug.Log($"<color=green>{this.GetType()}</color> JumpStart");
-        }
-        /* ----------------- DEVELOPER SETTINGS - REMOVE ME -------------------- */
+        PostUpdateCommands.RemoveComponent<JumpReady>(j_entities[i]);
       }
     }
   }

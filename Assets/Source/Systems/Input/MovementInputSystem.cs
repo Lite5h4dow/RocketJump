@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 namespace RocketJump {
+  [UpdateInGroup(typeof(InputGroup))]
   public class MovementInputSystem : ComponentSystem {
     ComponentGroup player;
 

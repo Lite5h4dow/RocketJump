@@ -20,6 +20,7 @@ namespace RocketJump {
     }
     void OnCollisionStay2D (Collision2D other) {
       AddImpact(other, State.Overlap.Stay);
+      Debug.Log("stay");
     }
 
     void AddImpact (Collision2D collision, State.Overlap state) {

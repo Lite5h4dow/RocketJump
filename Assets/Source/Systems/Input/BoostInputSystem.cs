@@ -5,6 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 namespace RocketJump {
+  [UpdateInGroup(typeof(InputGroup))]
   public class BoostInputSystem : ComponentSystem {
     ComponentGroup player;
     ComponentGroup input;
@@ -13,10 +14,6 @@ namespace RocketJump {
       player = GetComponentGroup(
         typeof(Player),
         typeof(BoostReady)
-      // NOTE: remove these as they aren't used
-      // typeof(WalkSpeed),
-      // typeof(BaseWalkSpeed),
-      // typeof(MaxBoost)
       );
       input = GetComponentGroup(
         typeof(BoostKeyDown)

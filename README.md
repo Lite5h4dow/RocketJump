@@ -2,8 +2,7 @@
 
 ### Game Mechanics
  - Main Menu
- - Normal Jump for Low / Medium Objects
- - Super Jumps for Medium / High objects & Bonusses
+ - Normal Jump chains into Rocket Jump that you can control
  - Duck for medium / High Objects
  - Scoring for coins and time
  - Play / Pause Menu
@@ -15,3 +14,9 @@
 1. Simple Mobile Game.
 2. Playable with one hand.
 3. "On The Shitter" Game.
+
+### Obstacles
+ - Flock of Birds
+ - Hot Air Baloon
+ - Airliners
+ - cars
