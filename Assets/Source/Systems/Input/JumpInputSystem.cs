@@ -29,7 +29,6 @@ namespace RocketJump {
       var j_timer = jump.GetComponentDataArray<JumpTimer> ();
 
       for (int i = 0; i < jump.CalculateLength (); i++) {
-        Debug.Log("test");
         PostUpdateCommands.AddComponent<Jumping> (j_entities[i], new Jumping {
           JumpTime = j_timer[i].Value
         });
