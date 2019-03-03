@@ -21,7 +21,7 @@ namespace RocketJump{
       var j_timer = jump.GetComponentDataArray<Jumping>();
       
       for(int i = 0; i < jump.CalculateLength(); i++){
-        if(j_timer[i].JumpTime > 0)
+        if(j_timer[i].Value > 0)
           continue;
 
         

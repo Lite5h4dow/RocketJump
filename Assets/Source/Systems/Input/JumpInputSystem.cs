@@ -13,7 +13,7 @@ namespace RocketJump {
       jump = GetComponentGroup (
         typeof (Player),
         typeof (JumpReady),
-        typeof (JumpTimer)
+        typeof (JumpAccelerationTimer)
       );
 
       key = GetComponentGroup (
@@ -26,12 +26,12 @@ namespace RocketJump {
 
     protected override void OnUpdate () {
       var j_entity = jump.GetEntityArray ();
-      var j_timer = jump.GetComponentDataArray<JumpTimer> ();
+      var j_timer = jump.GetComponentDataArray<JumpAccelerationTimer> ();
 
       for (int i = 0; i < jump.CalculateLength (); i++) {
         PostUpdateCommands.RemoveComponent<JumpReady>(j_entity[i]);
         PostUpdateCommands.AddComponent<Jumping> (j_entity[i], new Jumping {
-          JumpTime = j_timer[i].Value
+          Value = j_timer[i].Value
         });
       }
     }

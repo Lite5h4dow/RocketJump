@@ -23,7 +23,7 @@ namespace RocketJump {
 
       for (int i = 0; i < timer.CalculateLength (); i++) {
         EntityManager.SetComponentData<Jumping> (t_entity[i], new Jumping {
-          JumpTime = t_jumping[i].JumpTime - Time.deltaTime
+          Value = t_jumping[i].Value - Time.deltaTime
         });
       }
     }

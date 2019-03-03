@@ -6,6 +6,6 @@ using UnityEngine;
 namespace RocketJump{
   [Serializable]
   public struct Jumping:IComponentData{
-    public float JumpTime;
+    public float Value;
   }
 }
