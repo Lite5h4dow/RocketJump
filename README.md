@@ -2,11 +2,11 @@
 
 ### Game Mechanics
  - Main Menu
- - Normal Jump chains into Rocket Jump that you can control
+ - Normal Jump chains into Rocket Jump that you can control [Done.]
  - Duck for medium / High Objects
  - Scoring for coins and time
  - Play / Pause Menu
- - Adds
+ - Ads
  - Boost Pickups
  - Share Score Feature
 
@@ -20,3 +20,6 @@
  - Hot Air Baloon
  - Airliners
  - cars
+
+ ### Stretch Goals
+  - Multiplayer
