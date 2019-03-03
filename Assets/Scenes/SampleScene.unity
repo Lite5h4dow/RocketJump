@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -406,7 +406,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -461,11 +461,12 @@ GameObject:
   - component: {fileID: 1053371683}
   - component: {fileID: 1053371693}
   - component: {fileID: 1053371686}
-  - component: {fileID: 1053371677}
-  - component: {fileID: 1053371698}
-  - component: {fileID: 1053371695}
   - component: {fileID: 1053371690}
   - component: {fileID: 1053371678}
+  - component: {fileID: 1053371677}
+  - component: {fileID: 1053371698}
+  - component: {fileID: 1053371696}
+  - component: {fileID: 1053371695}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -482,11 +483,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249cb09395152c54aa02237955fef7ae, type: 3}
+  m_Script: {fileID: 11500000, guid: ea6f7797f8ac7ed4c990df4173ead2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedData:
-    Value: 10
 --- !u!114 &1053371678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,11 +495,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdab1e89f8c0c4fe7abb0276ab5b2298, type: 3}
+  m_Script: {fileID: 11500000, guid: 249cb09395152c54aa02237955fef7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedData:
-    Value: 0.3
+    Value: 15
 --- !u!114 &1053371679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,15 +646,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 5
+  m_GravityScale: 6.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!70 &1053371688
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -693,9 +692,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef877297bbaf45fe8fdd8afb0bbcb5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a0ee1ed6de3ba147b5d9b799a50c613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value: 0.2
 --- !u!114 &1053371691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,9 +760,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2022d33e09cb1d44814ea5a31fad222, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b090def73591684a88d75f10ba81143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value: 0
+--- !u!114 &1053371696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053371676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83557a8624e23d84f9f66f6a08110c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value: 5
 --- !u!114 &1053371697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,9 +802,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053371676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02937f281fc291409c8e5bb35a53575, type: 3}
+  m_Script: {fileID: 11500000, guid: d31955c841b879c4fa6544d8932d6964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value: 5
 --- !u!1001 &2047570463629682546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -858,11 +877,16 @@ PrefabInstance:
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugJumpState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
         type: 3}
       propertyPath: DebugBoostState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047570462231547261, guid: efc526e24d022457cb8caaf27ee10594,
+        type: 3}
+      propertyPath: DebugGroundedState
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

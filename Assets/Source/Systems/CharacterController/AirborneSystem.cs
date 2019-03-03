@@ -5,6 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 namespace RocketJump {
+  [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
   public class AirborneSystem : ComponentSystem {
     ComponentGroup airborne;
 

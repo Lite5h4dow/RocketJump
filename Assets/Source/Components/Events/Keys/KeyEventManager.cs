@@ -16,6 +16,17 @@ namespace RocketJump {
     void Update () {
       GetJumpKey();
       GetBoostKey();
+      GetRocketKey();
+    }
+    void GetRocketKey(){
+      if (Input.GetButtonDown("Rocket")) {
+        em.AddComponent(entity, typeof(RocketKeyDown));
+        Debug.Log("pressed");
+      } else if (Input.GetButton("Rocket")) {
+        em.AddComponent(entity, typeof(RocketKeyHeld));
+      } else if (Input.GetButtonUp("Rocket")) {
+        em.AddComponent(entity, typeof(RocketKeyUp));
+      }
     }
 
     void GetJumpKey () {
