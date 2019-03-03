@@ -3,54 +3,41 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using SharedCore;
 
 namespace RocketJump {
-  [UpdateInGroup(typeof(UnityEngine.Experimental.PlayerLoop.PostLateUpdate))]
+  [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
   public class CameraTrackingSystem : ComponentSystem {
     ComponentGroup camera;
     ComponentGroup player;
 
     protected override void OnCreateManager () {
-      camera = GetComponentGroup (
-        typeof (MainCamera),
-        typeof (Transform),
-        typeof (CameraLerpTime),
-        typeof (CameraLeadDirection),
-        typeof (CameraLeadDistance)
+      camera = GetComponentGroup(
+        typeof(Camera),
+        typeof(Transform),
+        typeof(PositionOffset),
+        typeof(TrackingSpeed)
+      );
+      player = GetComponentGroup(
+        typeof(Position)
       );
 
-      player = GetComponentGroup (
-        typeof (Player),
-        typeof (Transform)
-      );
-
-      RequireForUpdate (camera);
-      RequireForUpdate (player);
+      RequireForUpdate(camera);
+      RequireForUpdate(player);
     }
 
     protected override void OnUpdate () {
-      var c_entity = camera.GetEntityArray ();
-      var c_transform = camera.GetComponentArray<Transform> ();
-      var c_lerpTime = camera.GetComponentDataArray<CameraLerpTime> ();
-      var c_direction = camera.GetComponentDataArray<CameraLeadDirection> ();
-      var c_distance = camera.GetComponentDataArray<CameraLeadDistance> ();
+      var c_entity = camera.GetEntityArray();
+      var c_transform = camera.GetTransformAccessArray();
+      var c_positionOffset = camera.GetComponentDataArray<PositionOffset>();
+      var c_trackingSpeed = camera.GetComponentDataArray<TrackingSpeed>();
+      var p_position = player.GetComponentDataArray<Position>();
 
-      var p_entity = player.GetEntityArray ();
-      var p_transform = player.GetComponentArray<Transform> ();
-
-      for (int i = 0; i < camera.CalculateLength (); i++) {
-        c_transform[i].position = Vector3.Lerp (
-          c_transform[i].position,
-          new Vector3 (
-            p_transform[i].position.x + (
-              c_distance[i].Value * c_direction[i].Value
-            ),
-            p_transform[i].position.y,
-            c_transform[i].position.z
-          ),
-          Time.fixedDeltaTime * c_lerpTime[i].Value
-        );
-      }
+      c_transform[0].position = Vector3.Lerp(
+        c_transform[0].position,
+        c_positionOffset[0].Value + p_position[0].Value,
+        c_trackingSpeed[0].Value * Time.fixedDeltaTime
+      );
     }
   }
 }
