@@ -19,14 +19,14 @@ namespace RocketJump {
     }
 
     protected override void OnUpdate () {
-      var t_entities = thrust.GetEntityArray ();
+      var t_entity = thrust.GetEntityArray ();
       var t_thrust = thrust.GetComponentDataArray<RocketVelocity> ();
       var t_rigidbody = thrust.GetComponentArray<Rigidbody2D> ();
 
       for (int i = 0; i < thrust.CalculateLength (); i++) {
         t_rigidbody[i].velocity = new float2 (
           t_rigidbody[i].velocity.x,
-          t_thrust[i].Velocity
+          t_thrust[i].Value
         );
       }
     }

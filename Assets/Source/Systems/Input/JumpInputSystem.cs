@@ -25,14 +25,14 @@ namespace RocketJump {
     }
 
     protected override void OnUpdate () {
-      var j_entities = jump.GetEntityArray ();
+      var j_entity = jump.GetEntityArray ();
       var j_timer = jump.GetComponentDataArray<JumpTimer> ();
 
       for (int i = 0; i < jump.CalculateLength (); i++) {
-        PostUpdateCommands.AddComponent<Jumping> (j_entities[i], new Jumping {
+        PostUpdateCommands.RemoveComponent<JumpReady>(j_entity[i]);
+        PostUpdateCommands.AddComponent<Jumping> (j_entity[i], new Jumping {
           JumpTime = j_timer[i].Value
         });
-        PostUpdateCommands.RemoveComponent<JumpReady>(j_entities[i]);
       }
     }
   }

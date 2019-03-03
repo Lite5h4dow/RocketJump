@@ -8,5 +8,4 @@ namespace RocketJump{
   public struct Jumping:IComponentData{
     public float JumpTime;
   }
-  public class JumpingComponent : ComponentDataProxy<Jumping>{}
 }

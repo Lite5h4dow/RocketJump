@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RocketJump{
   [Serializable]
   public struct JumpVelocity:IComponentData{
-    public float Velocity;
+    public float Value;
   }
   public class JumpVelocityComponent : ComponentDataProxy<JumpVelocity>{}
 }

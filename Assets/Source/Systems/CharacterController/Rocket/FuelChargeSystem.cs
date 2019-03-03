@@ -17,7 +17,7 @@ namespace RocketJump {
     }
 
     protected override void OnUpdate () {
-      var c_entities = charge.GetEntityArray ();
+      var c_entity = charge.GetEntityArray ();
       var c_fuel = charge.GetComponentDataArray<RocketInactive> ();
       var c_maxFuel = charge.GetComponentDataArray<MaxRocketFuel>();
 
@@ -25,7 +25,7 @@ namespace RocketJump {
         if(c_fuel[i].Value >= c_maxFuel[i].Value)
           continue;
 
-        EntityManager.SetComponentData<RocketInactive> (c_entities[i], new RocketInactive {
+        EntityManager.SetComponentData<RocketInactive> (c_entity[i], new RocketInactive {
           Value = c_fuel[i].Value + Time.deltaTime
         });
       }

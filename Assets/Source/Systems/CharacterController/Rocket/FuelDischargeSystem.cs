@@ -16,12 +16,12 @@ namespace RocketJump {
     }
 
     protected override void OnUpdate () {
-      var d_entities = discharge.GetEntityArray ();
+      var d_entity = discharge.GetEntityArray ();
       var d_fuel = discharge.GetComponentDataArray<RocketActive> ();
 
       for (int i = 0; i < discharge.CalculateLength (); i++) {
-        EntityManager.SetComponentData (d_entities[i], new RocketActive {
-          Fuel = d_fuel[i].Fuel - Time.deltaTime
+        EntityManager.SetComponentData (d_entity[i], new RocketActive {
+          Value = d_fuel[i].Value - Time.deltaTime
         });
       }
     }

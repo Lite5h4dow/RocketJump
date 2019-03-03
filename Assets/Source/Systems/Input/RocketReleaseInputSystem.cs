@@ -22,13 +22,13 @@ namespace RocketJump{
     }
 
     protected override void OnUpdate(){
-      var r_entities = rocket.GetEntityArray();
+      var r_entity = rocket.GetEntityArray();
       var r_fuel = rocket.GetComponentDataArray<RocketActive>();
       
       for(int i = 0; i < rocket.CalculateLength(); i++){
-        PostUpdateCommands.RemoveComponent<RocketActive>(r_entities[i]);
-        PostUpdateCommands.AddComponent<RocketInactive>(r_entities[i], new RocketInactive{
-          Value = r_fuel[i].Fuel
+        PostUpdateCommands.RemoveComponent<RocketActive>(r_entity[i]);
+        PostUpdateCommands.AddComponent<RocketInactive>(r_entity[i], new RocketInactive{
+          Value = r_fuel[i].Value
         });
       }
     }

@@ -5,29 +5,29 @@ using Unity.Transforms;
 using UnityEngine;
 
 namespace RocketJump{
-  [UpdateAfter(typeof(JumpingVelocitySystem))]
-  public class JumpingSystem:ComponentSystem{
+  [UpdateAfter(typeof(JumpDecrementSystem))]
+  public class JumpingVelocitySystem:ComponentSystem{
     ComponentGroup jump;
 
     protected override void OnCreateManager(){
       jump = GetComponentGroup(
+        typeof(Player),
         typeof(Jumping),
-        typeof(Player)
+        typeof(JumpVelocity),
+        typeof(Rigidbody2D)
       );
     }
 
     protected override void OnUpdate(){
       var j_entity = jump.GetEntityArray();
-      var j_timer = jump.GetComponentDataArray<Jumping>();
+      var j_velocity = jump.GetComponentDataArray<JumpVelocity>();
+      var j_rigidbody = jump.GetComponentArray<Rigidbody2D>();
       
       for(int i = 0; i < jump.CalculateLength(); i++){
-        if(j_timer[i].JumpTime > 0)
-          continue;
-
-        
-
-        PostUpdateCommands.RemoveComponent<Jumping>(j_entity[i]);
-        PostUpdateCommands.AddComponent<JumpEnd>(j_entity[i], new JumpEnd{});
+        j_rigidbody[i].velocity = new Vector2 (
+          j_rigidbody[i].velocity.x,
+          j_velocity[i].Value
+        );
       }
     }
   }

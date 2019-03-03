@@ -17,11 +17,11 @@ namespace RocketJump{
     }
 
     protected override void OnUpdate(){
-      var j_entities = jump.GetEntityArray();
+      var j_entity = jump.GetEntityArray();
 
       for(int i = 0; i < jump.CalculateLength(); i++){
-        PostUpdateCommands.RemoveComponent<JumpEnd>(j_entities[i]);
-        PostUpdateCommands.AddComponent<JumpReady>(j_entities[i], new JumpReady{});
+        PostUpdateCommands.RemoveComponent<JumpEnd>(j_entity[i]);
+        PostUpdateCommands.AddComponent<JumpReady>(j_entity[i], new JumpReady{});
       }
     }
   }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RocketJump {
 
-  [UpdateBefore (typeof (UnityEngine.Experimental.PlayerLoop.Update))]
+  // [UpdateBefore (typeof (UnityEngine.Experimental.PlayerLoop.Update))]
   public class InputGroup {
 
   }

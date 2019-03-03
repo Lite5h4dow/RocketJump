@@ -6,7 +6,6 @@ using UnityEngine;
 namespace RocketJump{
   [Serializable]
   public struct RocketActive:IComponentData{
-    public float Fuel;
+    public float Value;
   }
-  public class RocketActiveComponent : ComponentDataProxy<RocketActive>{}
 }
