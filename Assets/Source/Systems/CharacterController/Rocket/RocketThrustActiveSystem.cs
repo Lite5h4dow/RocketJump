@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RocketJump {
   [UpdateAfter(typeof(RocketFuelEndSystem))]
-  public class RocketThrustSystem : ComponentSystem {
+  public class RocketThrustActiveSystem : ComponentSystem {
     ComponentGroup thrust;
 
     protected override void OnCreateManager () {

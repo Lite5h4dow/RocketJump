@@ -31,6 +31,7 @@ namespace RocketJump {
       var c_transform = camera.GetTransformAccessArray();
       var c_positionOffset = camera.GetComponentDataArray<PositionOffset>();
       var c_trackingSpeed = camera.GetComponentDataArray<TrackingSpeed>();
+
       var p_position = player.GetComponentDataArray<Position>();
 
       c_transform[0].position = Vector3.Lerp(
