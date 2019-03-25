@@ -5,6 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 namespace RocketJump{
+  [UpdateInGroup(typeof(InputGroup))]
   public class RocketReleaseInputSystem:ComponentSystem{
     ComponentGroup rocket;
     ComponentGroup key;

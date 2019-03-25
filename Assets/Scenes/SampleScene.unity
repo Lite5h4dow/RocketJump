@@ -649,7 +649,6 @@ GameObject:
   - component: {fileID: 1053371682}
   - component: {fileID: 1053371685}
   - component: {fileID: 1053371684}
-  - component: {fileID: 1053371688}
   - component: {fileID: 1053371687}
   - component: {fileID: 1053371681}
   - component: {fileID: 1053371679}
@@ -670,6 +669,7 @@ GameObject:
   - component: {fileID: 1053371695}
   - component: {fileID: 1053371700}
   - component: {fileID: 1053371699}
+  - component: {fileID: 1053371688}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -795,7 +795,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ac42aa64280b4134b7392cb26ee7d1b, type: 2}
+  - {fileID: 2100000, guid: 01875783ee23fae4f973c56057a190f2, type: 2}
+  - {fileID: 2100000, guid: 01875783ee23fae4f973c56057a190f2, type: 2}
+  - {fileID: 2100000, guid: 958378a28f79040499e62dd70fab1580, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -822,7 +824,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053371676}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 6622264641530768373, guid: 6ff3aed6c06c2e74890659249bb887db, type: 3}
 --- !u!114 &1053371686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,8 +873,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.39260954, y: 4.4197197}
+  m_Size: {x: 2.393972, y: 8.862324}
   m_Direction: 0
 --- !u!114 &1053371689
 MonoBehaviour:
@@ -1705,8 +1707,8 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -0.8, y: 0, z: 0}
-    m_Rotation: {x: 90, y: -90, z: 0}
+    m_Position: {x: -1.62, y: 4.29, z: 0}
+    m_Rotation: {x: 79.9, y: -90, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -4541,7 +4543,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 1
